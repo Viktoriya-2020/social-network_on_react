@@ -1,0 +1,8 @@
+.inform{
+  grid-area: 3 / 1 / 4 / 5;
+}
+
+.postNew{
+  background-color: rgb(219, 218, 216);
+  margin-right: 2em;
+}

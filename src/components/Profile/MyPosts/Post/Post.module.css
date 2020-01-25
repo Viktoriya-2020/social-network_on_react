@@ -1,0 +1,13 @@
+
+
+.item{
+  background-color: #ffcc66;
+  margin: 2em 2em 2em 0;
+}
+
+.item img{
+  height: 8vh;
+  width: 4vw;
+  margin: 1em;
+  border-radius: 30px;
+}

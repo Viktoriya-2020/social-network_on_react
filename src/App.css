@@ -11,6 +11,9 @@
  grid-gap: 1.5vw;
 }
 
-
+.content{
+    grid-area:s ;
+    
+  }
 
 
