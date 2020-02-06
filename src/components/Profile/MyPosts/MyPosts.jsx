@@ -3,16 +3,25 @@ import s from './MyPosts.module.css'
 import Post from './Post/Post';
 
 const MyPosts = (props) => {
-   
+   let newPostElement = React.createRef();
+   console.log('test =>',  props.upDatePostText )
+    let addPost = () => {
+      let text = newPostElement.current.value;
+      props.addPost(text);
+      newPostElement.current.value = ''
+    }  
 
-      
-
+    let newPostChange = () => {
+    
+        let text = newPostElement.current.value;
+        props.upDatePostText(text);
+    }
       let postsElements = props.posts.map(p => <Post messege={p.messeges}  likesCount={p.likesCount}/>)
       return(
             <div className={s.inform}>
               <h3>My posts</h3>
-              <textarea cols="50" rows="7"></textarea>
-              <button><b>Add</b></button>
+              <textarea  ref = {newPostElement} cols="50" rows="7" value={props.newPostText} onChange={newPostChange} />
+              <button onClick = {addPost}><b>Add</b></button>
                 <div className={s.postNew}>
                   New post
                 </div>
