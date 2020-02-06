@@ -1,8 +1,20 @@
-.inform{
-  grid-area: 3 / 1 / 4 / 5;
-}
+
 
 .postNew{
   background-color: rgb(219, 218, 216);
   margin-right: 2em;
 }
+
+.inform textarea{
+ margin:1em;
+ border-width:2px;
+ border-color: rgb(47, 160, 126)
+}
+
+.inform button{
+  margin:1em;
+ background-color: rgb(248, 97, 51);
+ color: indigo;
+ height: 4vh;
+ width: 4vw;
+ }

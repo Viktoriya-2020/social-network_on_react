@@ -1,8 +1,20 @@
 .nav{
   grid-area:n ;
   background-color: #99ffcc;
+  padding:2vw;
+ 
 }
 
-.item{
+.item a{
   color:white;
+  text-decoration: none;
+}
+
+.item a.activeLink {
+  color:rgb(255, 72, 0);
+  
+}
+
+.friendsBlock{
+  width: 100%;
 }

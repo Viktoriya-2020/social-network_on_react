@@ -1,0 +1,21 @@
+h3{
+    color:red;
+    font-weight: 700;
+}
+
+.friendItem{
+    float:left;
+    height: 3vw;
+    width: 4.4vh;
+    margin:0.7vw 0.6vw 0.7vw 0;
+}
+
+.friendItem img{
+    height: 70%;
+    width: 100%;
+}
+
+.nameItem{
+    width: 100%; 
+    font-size: 0.6vw;
+}

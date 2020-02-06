@@ -3,6 +3,7 @@
 .item{
   background-color: #ffcc66;
   margin: 2em 2em 2em 0;
+  padding: 2em;
 }
 
 .item img{
@@ -10,4 +11,7 @@
   width: 4vw;
   margin: 1em;
   border-radius: 30px;
+}
+.item p{
+  text-decoration: andeline;
 }
