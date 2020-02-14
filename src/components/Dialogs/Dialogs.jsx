@@ -3,6 +3,7 @@ import s from './Dialogs.module.css'
 import { NavLink } from 'react-router-dom';
 import DialogItem from './DialogItem/DialogItem';
 import Messege from './Messege/Messege';
+import { addMessageActionCreator } from '../../Redax/dialogs-reducer';
 
 
 const Dialogs = (props) => {
@@ -10,7 +11,7 @@ const Dialogs = (props) => {
 
       let addMessage = () => {
          let text = newMessageElement.current.value;
-         props.dispatch({type:"ADD-NEW-MESSAGE", newMessages:text});
+         props.dispatch( addMessageActionCreator(text));
          newMessageElement.current.value = ''
       }
   

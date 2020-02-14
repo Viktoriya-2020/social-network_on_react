@@ -1,20 +1,24 @@
 import React from 'react';
 import s from './MyPosts.module.css'
 import Post from './Post/Post';
+import { updateNewPostTextActionCreator, addPostActionCreator } from '../../../Redax/profile-reduser';
+
+
+
 
 const MyPosts = (props) => {
    let newPostElement = React.createRef();
   
     let addPost = () => {
       
-      props.dispatch({type:"ADD-POST"});
+      props.dispatch(addPostActionCreator());
      
     }  
 
     let newPostChange = () => {
     
         let text = newPostElement.current.value;
-        props.dispatch({type:"UPDATE-NEW-POST-TEXT",newText: text});
+        props.dispatch(updateNewPostTextActionCreator(text));
     }
       let postsElements = props.posts.map(p => <Post messege={p.messeges}  likesCount={p.likesCount}/>)
       return(
