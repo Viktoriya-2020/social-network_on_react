@@ -1,4 +1,5 @@
 const ADD_NEW_MESSAGE = "ADD-NEW-MESSAGE";
+const WRITE_NEW_MESSAGE = "WRITE-NEW-MESSAGE"
 
 let initialState = {
     dialogs: [
@@ -17,25 +18,32 @@ let initialState = {
         {id:5, messeges: 'I am here.'},
         {id:6, messeges: 'What are you doing?'},
         {id:7, messeges: 'I am sleeping.'}
-       ]
+       ],
+       newMessageBody:"Enter message..."
 }
 
 
-let initialState = {
+
 const dialogsReducer = (state = initialState,action) => {
-    debugger;
+    
     if ( action.type === ADD_NEW_MESSAGE ){
         let newMessage = {
             id:8,
-            messeges: action.newMessages,
+            messeges: state.newMessageBody,
         }
         state.messeges.push(newMessage);
+        state.newMessageBody = "";
+      }
+      else if(action.type === WRITE_NEW_MESSAGE ){
+        state.newMessageBody = action.body
       }
       return state;
 }
 
-export const addMessageActionCreator = (text) => {
-    return {type:ADD_NEW_MESSAGE, newMessages:text}
+export const addMessageActionCreator = () => {
+    return {type:ADD_NEW_MESSAGE}
  }  
-
+ export const writeMessageActionCreator = (messageBody) =>{
+     return {type: WRITE_NEW_MESSAGE, body:messageBody }
+ }
 export default dialogsReducer;

@@ -1,22 +1,24 @@
 import React from 'react';
-import s from './Dialogs.module.css'
-import { NavLink } from 'react-router-dom';
+import s from './Dialogs.module.css';
 import DialogItem from './DialogItem/DialogItem';
 import Messege from './Messege/Messege';
-import { addMessageActionCreator } from '../../Redax/dialogs-reducer';
+
 
 
 const Dialogs = (props) => {
    let newMessageElement = React.createRef();
 
       let addMessage = () => {
-         let text = newMessageElement.current.value;
-         props.dispatch( addMessageActionCreator(text));
-         newMessageElement.current.value = ''
+        props.addMessage();
       }
+
+     let newMessageBody = () => {
+      let body = newMessageElement.current.value;
+      props.newMessageBodyCreator(body)
+     }
   
-   let dialogsElements = props.dialogs.dialogs.map(d => <DialogItem name={d.name} id={d.id} />);
-   let messegesElements = props.dialogs.messeges.map(m => <Messege messeges={m.messeges} id={m.id}/>);
+   let dialogsElements = props.dialogsPage.dialogs.map(d => <DialogItem name={d.name} id={d.id} />);
+   let messegesElements = props.dialogsPage.messeges.map(m => <Messege messeges={m.messeges} id={m.id}/>);
 
     return(
       <div  className={s.gialogs}> 
@@ -29,7 +31,7 @@ const Dialogs = (props) => {
          </div>
          <div ></div>
          <div className={s.addtext}>
-            <textarea ref = {newMessageElement} cols='50' rows='5' ></textarea>
+    <textarea ref = {newMessageElement} cols='50' rows='5' value={props.dialogsPage.newMessageBody} onChange = {newMessageBody}></textarea>
             <button onClick = {addMessage}>Add</button>
             </div>
          
