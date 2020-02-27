@@ -1,5 +1,5 @@
 const ADD_NEW_MESSAGE = "ADD-NEW-MESSAGE";
-const WRITE_NEW_MESSAGE = "WRITE-NEW-MESSAGE"
+const WRITE_MESSAGE_BODY =  "WRITE-MESSAGE-BODY"
 
 let initialState = {
     dialogs: [
@@ -19,31 +19,37 @@ let initialState = {
         {id:6, messeges: 'What are you doing?'},
         {id:7, messeges: 'I am sleeping.'}
        ],
-       newMessageBody:"Enter message..."
+       newMessageBody: 'enter message...'
 }
 
 
 
 const dialogsReducer = (state = initialState,action) => {
-    
-    if ( action.type === ADD_NEW_MESSAGE ){
-        let newMessage = {
-            id:8,
-            messeges: state.newMessageBody,
-        }
-        state.messeges.push(newMessage);
-        state.newMessageBody = "";
-      }
-      else if(action.type === WRITE_NEW_MESSAGE ){
-        state.newMessageBody = action.body
-      }
-      return state;
+    switch(action.type){
+        case ADD_NEW_MESSAGE:
+            let newMessage = {
+                id:8,
+                messeges: state.newMessageBody,
+            }
+            state.messeges.push(newMessage);
+
+            return state;
+            
+        case WRITE_MESSAGE_BODY:
+            state.newMessageBody = action.newMessages
+            return state;
+
+        default:
+                return state;
+      }  
 }
 
+
+
 export const addMessageActionCreator = () => {
-    return {type:ADD_NEW_MESSAGE}
+    return {type:ADD_NEW_MESSAGE }
  }  
- export const writeMessageActionCreator = (messageBody) =>{
-     return {type: WRITE_NEW_MESSAGE, body:messageBody }
+ export const writeMessageActionCreator = (body) =>{
+    return {type: WRITE_MESSAGE_BODY, newMessages:body}
  }
 export default dialogsReducer;

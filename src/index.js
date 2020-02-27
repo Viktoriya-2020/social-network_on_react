@@ -13,8 +13,8 @@ let rerenderEntireTree = (state) =>{
         ReactDOM.render(
             <BrowserRouter>
             
-                <App state={state} store={store}
-                dispatch={store.dispatch.bind(store)} 
+                <App store={store} 
+                dispatch = {store.dispatch.bind(store)}
                  />
             </BrowserRouter>,
             document.getElementById('root'));
@@ -23,10 +23,7 @@ let rerenderEntireTree = (state) =>{
 
 rerenderEntireTree(store.getState());
 
-store.subscribe( () => {
-    let state = store.getState();
-    rerenderEntireTree(state);
-});
+store.subscribe(rerenderEntireTree);
 // If you want your app towork offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
