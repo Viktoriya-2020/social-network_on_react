@@ -1,6 +1,7 @@
 import React from 'react';
 import { followAC, unfollowAC, setUsersAC } from '../../Redax/users-reducer';
 import Users from './Users';
+import { connect } from 'react-redux';
 
 let mapStateToProps = (state) => {
     return{

@@ -43,6 +43,39 @@ let store = {
                 {id:1, name: 'Pavel'},
               ]
         },
+        usersPage:{
+        users: [
+            {id:1,
+            user_fullName: Gevorg,
+            user_url: 'https://cdn1.iconfinder.com/data/icons/children-avatar-flat/128/children_avatar-01-512.png',
+            user_location:{user_country: Russia, user_city: Moscow },
+            followed:true,
+            status:'I am boss'
+            },
+            {id:2,
+            user_fullName: Hovsep,
+            user_url: 'https://cdn1.iconfinder.com/data/icons/children-avatar-flat/128/children_avatar-01-512.png',
+            user_location:{user_country: Armenia, user_city: Erevan },
+            followed:false,
+            status:'I am teacher'
+            },
+            {id:3,
+            user_fullName: Mery,
+            user_url: 'https://cdn1.iconfinder.com/data/icons/children-avatar-flat/128/children_avatar-01-512.png',
+            user_location:{user_country: USA, user_city: Vashington },
+            followed:false,
+            status:'I am student'
+            },
+            {id:4,
+            user_fullName: Isahak,
+            user_url: 'https://cdn1.iconfinder.com/data/icons/children-avatar-flat/128/children_avatar-01-512.png',
+            user_location:{user_country: China, user_city: Pecin },
+            followed:true,
+            status:'I am happy'
+            },
+    
+        ]
+        }
     },
     _callSubscriber()  {
         console.log('State changed');
