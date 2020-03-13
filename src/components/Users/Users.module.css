@@ -11,16 +11,17 @@
     padding: 1vw;
     color: rgb(2, 37, 2);
     font-size: 3vh;
+    font-weight: bold;
     border-bottom: rgb(78, 22, 12);
     box-shadow: 1px 1px 3px 0px rgb(255, 72, 0);
     border-radius: 0 3vw 3vw 0 ; 
     grid-column: 1/2 ;
-    margin: 2vh;
+    margin: 1vh;
 }
 
 .user_grid{
     display: grid;
-    grid-template-columns: 4vw 15vw auto 6vw;
+    grid-template-columns: 4vw 17vw auto 6vw;
 }
 
 
@@ -35,4 +36,5 @@ p{
 }
 .user_grid :nth-child(2):nth-child(2){
     font-size: 2vh;
+    font-weight:medium;
 }

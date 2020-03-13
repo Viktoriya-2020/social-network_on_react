@@ -1,6 +1,7 @@
 import React from 'react';
 import s from './ProfileInfo.module.css'
-
+import wallThoto from '../../../assets/images/wall.jpg';
+import avatar from '../../../assets/images/avatar.jpg';
 
 
 const ProfileInfo = () => {
@@ -8,10 +9,10 @@ const ProfileInfo = () => {
       <div > 
         <div className={s.container}>
             <div className={s.content_wall}>
-              <img src="https://www.whitemanpark.com.au/wp-content/uploads/2015/03/Childrens-Forest-INTERNAL-BANNER-1500x450-v2.jpg" alt = 'wall-picture'/>
+              <img src={wallThoto} alt = 'wall-picture'/>
             </div>
             <div className={s.ava}>
-              <img src="https://cdn5.vectorstock.com/i/1000x1000/72/59/female-avatar-profile-icon-round-african-american-vector-18307259.jpg" />
+              <img src={avatar} />
             </div>
             <div className={s.dickrip}>
               <h4>Name Surname</h4>

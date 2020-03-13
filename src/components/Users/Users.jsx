@@ -1,50 +1,24 @@
 import React from 'react';
 import style from './Users.module.css';
-
-
+import *as axios from 'axios';
+import userThoto from '../../assets/images/gambar-user-png-5.png';
 
 const Users = (props) => {
    if (props.users.length === 0) {
-       props.setUsers(
-        [
-            {id:1,
-            user_fullName: 'Gevorg',
-            user_url: 'https://cdn1.iconfinder.com/data/icons/children-avatar-flat/128/children_avatar-01-512.png',
-            user_location:{user_country:'Russia', user_city: 'Moscow' },
-            followed:true,
-            status:'I am boss'
-            },
-            {id:2,
-            user_fullName: 'Hovsep',
-            user_url: 'https://cdn1.iconfinder.com/data/icons/children-avatar-flat/128/children_avatar-01-512.png',
-            user_location:{user_country: 'Armenia', user_city: 'Erevan' },
-            followed:false,
-            status:'I am teacher'
-            },
-            {id:3,
-            user_fullName: 'Mery',
-            user_url: 'https://cdn1.iconfinder.com/data/icons/children-avatar-flat/128/children_avatar-01-512.png',
-            user_location:{user_country: 'USA', user_city: 'Vashington' },
-            followed:false,
-            status:'I am student'
-            },
-            {id:4,
-            user_fullName: 'Isahak',
-            user_url: 'https://cdn1.iconfinder.com/data/icons/children-avatar-flat/128/children_avatar-01-512.png',
-            user_location:{user_country: 'China', user_city: 'Pecin' },
-            followed:true,
-            status:'I am happy'
-            },
-        ]
-       )
+      
+      axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response =>{
+            
+            props.setUsers(response.data.items);
+      });
    }
+
   let UserElement = props.users.map( u => 
         <div key = {u.id} className = {style.user}>
             <div  className = {style.user_grid}>
-                <div><img src={u. user_url} /></div>
+                <div><img src={u.photos.small != null ? u.photos.small : userThoto} /></div>
                 <div> 
-                    <p>{u.user_fullName}</p>
-                    <p> {u.user_location.user_country} ({u.user_location.user_city})</p>
+                    <p>{u.name}</p>
+                    <p> {'u.user_location.user_country'} ({'u.user_location.user_city'})</p>
                 </div>
                 <div>{u.status}...</div>
                 <div>
