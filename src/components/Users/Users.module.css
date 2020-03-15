@@ -38,3 +38,16 @@ p{
     font-size: 2vh;
     font-weight:medium;
 }
+
+.selectPage{
+    font-weight: bold;
+}
+
+.users > button{
+    width: 1vww;  
+    height: 1vw;
+}
+
+.users > .numbersPages{
+    grid-row: 5vh;
+}
