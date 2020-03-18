@@ -49,5 +49,6 @@ p{
 }
 
 .users > .numbersPages{
-    grid-row: 5vh;
+    grid-row: 1/6;
+    grid-column: 2/3 ;
 }
