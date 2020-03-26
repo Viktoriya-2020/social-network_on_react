@@ -4,5 +4,17 @@
 }
 .header img{
   width:17vw;
-  margin: 0.6vw;
+  margin: 0.6vw ;
+ }
+.headerGrid{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+}
+.headerGrid div{
+    width: 20vw;
+}
+.loginLink{
+  color:white;
 }
