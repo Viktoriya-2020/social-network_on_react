@@ -2,6 +2,8 @@ import React from 'react';
 import style from './Users.module.css';
 import userThoto from '../../assets/images/gambar-user-png-5.png';
 import {NavLink} from 'react-router-dom';
+import *as axios from 'axios';
+import { usersAPI } from '../../api/api';
 const  Users =(props) =>{
    
     let pagesCount = Math.ceil(props.totalUsersCount/ props.count);
@@ -30,8 +32,28 @@ const  Users =(props) =>{
                     <div>{u.status}...</div>
                     <div>
                         { u.followed
-                        ?<button onClick = { () =>{ props.unfollow(u.id) }}>Unfollow</button>
-                        :<button onClick = { () =>{ props.follow(u.id) }}>Follow</button>
+                        ?<button disabled = {props.followingInProgress.some(id => id === u.id)} onClick = { () =>{ 
+                            debugger; 
+                            props.toggleIsFollowingProgress(true, u.id);
+                           usersAPI.unfollowUser(u.id).then(response =>{
+                                    if(response.data.resultCode === 0){
+                                        props.unfollow(u.id)
+                                       }
+                                       props.toggleIsFollowingProgress(false, u.id);
+                                      
+                                    })
+                                    }    
+                        }>unfollow</button>
+                        :<button  disabled = {props.followingInProgress.some(id => id === u.id)} onClick = { () =>{
+                            props.toggleIsFollowingProgress(true, u.id);
+                            usersAPI.followUser(u.id).then(response =>{
+                                    if(response.data.resultCode === 0){
+                                        props.follow(u.id)
+                                       }
+                                       props.toggleIsFollowingProgress(false, u.id);
+                                    })
+                               
+                        }}>follow</button>
                         }
                     </div>
                 </div>
