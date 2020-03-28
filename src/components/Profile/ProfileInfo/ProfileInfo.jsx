@@ -3,6 +3,7 @@ import s from './ProfileInfo.module.css'
 import wallThoto from '../../../assets/images/wall.jpg';
 import avatar from '../../../assets/images/avatar.jpg';
 import Preloader from '../../../common/Preloader/Preloader';
+import ProfileStatus from './ProfileStatus';
 
 
 const ProfileInfo = (props) => {
@@ -19,8 +20,8 @@ const ProfileInfo = (props) => {
               <img src={!props.profile.photos.large ? avatar : props.profile.photos.large} />
             </div>
             <div className={s.dickrip}>
-              <h4>{props.profile.fullName}</h4>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi facere saepe molestias natus pariatur sit soluta. Sint atque, nihil in, praesentium eius saepe magnam repellendus autem iste accusantium magni dignissimos.</p>
+              <h2>{props.profile.fullName}</h2>
+              <ProfileStatus status="Status"/>
             </div>
          </div> 
       </div>
