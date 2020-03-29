@@ -7,9 +7,11 @@ import ProfileStatus from './ProfileStatus';
 
 
 const ProfileInfo = (props) => {
+  
   if(!props.profile){
     return<Preloader />
   }
+
     return(
       <div > 
         <div className={s.container}>
@@ -21,7 +23,7 @@ const ProfileInfo = (props) => {
             </div>
             <div className={s.dickrip}>
               <h2>{props.profile.fullName}</h2>
-              <ProfileStatus status="Status"/>
+              <ProfileStatus statusUser={props.statusUser} updateUserStatus={props.updateUserStatus} />
             </div>
          </div> 
       </div>

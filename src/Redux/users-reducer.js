@@ -1,4 +1,4 @@
-import  { usersAPI } from '../api/api';
+import  { usersAPI,  profileAPI } from '../api/api';
 
 const SET_USERS = "SET-USERS";
 const  FOLLOW =  "FOLLOW"
@@ -7,7 +7,8 @@ const  SET_CURRENT_PAGE = "SET-CURRENT-PAGE"
 const SET_TOTAL_USERS_COUNT = "SET_TOTAL_USERS_COUNT"
 const TOGGLE_IS_FETCHING = "TOGGLE-IS-FETCHING"
 const TOGGLE_IS_FOLLOING_PROGRESS = "TOGGLE_IS_FOLLOING_PROGRESS"
-
+const SET_STATUS = "SET_STATUS"
+const UPDATE_STATUS = "UPDATE_STATUS"
 let initialState = {
    users: [],
    count:5,
@@ -15,6 +16,7 @@ let initialState = {
    currentPage:1,
    isFetching: false,
    followingInProgress:[],
+   status:'',
 }
 const usersReducer = (state = initialState,action) => {
      
@@ -25,7 +27,14 @@ const usersReducer = (state = initialState,action) => {
                ...state,
                users:[ ...action.users]
            } 
-       
+           case SET_STATUS:
+           return{
+               ...state, status: action.status
+           } 
+           case UPDATE_STATUS:
+            return{
+                ...state, status: action.status
+            } 
         
         case FOLLOW:
             return {
@@ -98,6 +107,12 @@ export const setUsers = (users) => {
  export const toggleIsFollowingProgress  = (isFetching, userId) =>{
     return {type: TOGGLE_IS_FOLLOING_PROGRESS, isFetching, userId}
  }
+ export const setStatus  = (status) =>{
+    return {type: SET_STATUS, status}
+ }
+ export const updateStatus  = (status) =>{
+    return {type: UPDATE_STATUS, status}
+ }
 export const gettingUsers = (count, currentPage) =>{
         return   (dispatch) => {
     dispatch(setCurrentPage(currentPage))
@@ -130,6 +145,28 @@ export const unfollow = (userId) =>{
                     dispatch(unfollowSuccess(userId))
                    }
                    
+                })
+}
+}
+export const getUserStatus = (userId) =>{
+    return   (dispatch) => {
+        
+        profileAPI.getStatus(userId).then(response =>{
+                
+                    dispatch(setStatus(response.data));
+                  
+                })
+}
+}
+export const updateUserStatus = (status) =>{
+    return   (dispatch) => {
+        
+        profileAPI.updateStatus(status).then(response =>{
+           
+            if(response.data.resultCode === 0){
+              
+                dispatch(updateStatus(status));
+               }
                 })
 }
 }

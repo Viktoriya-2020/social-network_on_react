@@ -12,6 +12,7 @@ let initialState = {
         ],
         newPostText: "Post",
         profile: null,
+        
 }
 
 const profileReducer = (state = initialState,action) => {
@@ -62,4 +63,5 @@ export const getUserProfile = (userId) => {
         });
     }
 }
+
 export default profileReducer;
