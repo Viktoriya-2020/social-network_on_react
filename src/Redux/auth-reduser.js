@@ -1,5 +1,6 @@
-import { usersAPI } from '../api/api';
+import { authAPI } from '../api/api';
 const SET_USER_DATA = "SET-USER-DATA";
+const LOGIN = "LOGIN";
 
 let initialState = {
    id: null,
@@ -19,17 +20,25 @@ const authReducer = (state = initialState,action) => {
                 email:action.email,
                  isAuth: true,}
         }
+        case LOGIN:{
+            return {...state, 
+               
+                 isAuth: true,}
+        }
         default:
                 return state;
     }       
 }
-export const setAuthUserData = (id, login, email) =>{
-    
-    return { type: SET_USER_DATA, id, login, email }
+ const setAuthUserData = (id, login, email, isAuth=true) =>{
+    return { type: SET_USER_DATA, id, login, email,isAuth }
 }
-    export const getAuth = () =>{
+ const Login = () =>{
+    return { type: LOGIN }
+}
+
+export const getAuth = () =>{
             return (dispatch) => {
-                usersAPI.getAuthUserData().then(response =>{
+                authAPI.getAuthUserData().then(response =>{
                       
                 if(response.data.resultCode === 0){
                 let {id, login, email} = response.data.data;
@@ -38,5 +47,14 @@ export const setAuthUserData = (id, login, email) =>{
                 }
             })
         }
-        }
+    }
+export const login = (email, password, rememberMe) =>{
+        return (dispatch) => {
+            authAPI.login(email, password, rememberMe).then(response =>{
+                  if(response.data.resultCode === 0){
+                    dispatch(Login())
+            }
+        })
+    }
+}
 export default authReducer;

@@ -23,15 +23,13 @@ export const usersAPI = {
         }, 
    
     
-     getAuthUserData (){
-         return instance.get(`auth/me`)
-     }                  
+                     
 }
 export const profileAPI = {
+    getUserData(userId){
+        return instance.get(`profile/`+ userId)
+    },
     
-     getUserData(userId){
-         return instance.get(`profile/`+ userId)
-     },
      getStatus(userId){
         return  instance.get(`profile/status/`+ userId)
      } ,
@@ -39,4 +37,13 @@ export const profileAPI = {
         return  instance.put(`profile/status/`,{status: status})
      },
 }
+export const authAPI = {
+    getAuthUserData (){
+        return instance.get(`auth/me`)
+    } ,
+    login (email, password, rememberMe){
+        return instance.post(`auth/login`,{email, password, rememberMe})
+        }, 
+}
+
 

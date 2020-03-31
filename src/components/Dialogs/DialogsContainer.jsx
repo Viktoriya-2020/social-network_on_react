@@ -1,5 +1,5 @@
 import React from 'react';
-import { addMessageActionCreator, writeMessageActionCreator } from '../../Redux/dialogs-reducer';
+import { addMessageActionCreator } from '../../Redux/dialogs-reducer';
 import Dialogs from './Dialogs';
 import { connect } from 'react-redux';
 import { WithAuthRedirect } from '../../hok/WithAuthReirect';
@@ -21,7 +21,4 @@ let mapDispatchToProps = (dispatch) => {
       }
    }
 }
-export default compose(
-   connect( mapStateToProps, mapDispatchToProps),
-   WithAuthRedirect  
- )(Dialogs);
+export default compose(connect( mapStateToProps, mapDispatchToProps), WithAuthRedirect)(Dialogs);
