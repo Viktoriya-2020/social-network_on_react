@@ -10,7 +10,6 @@ let initialState = {
         { id:3, messeges: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt lacus lacus, sed eleifend nibh dignissim sed.", likesCount:"22"},
         { id:4, messeges: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", likesCount:"12"},
         ],
-        newPostText: "Post",
         profile: null,
         
 }
@@ -18,24 +17,18 @@ let initialState = {
 const profileReducer = (state = initialState,action) => {
     switch(action.type){
         case ADD_POST:{
-            let newPost = {
+            let newPostBody = {
                 id:5, 
-                messeges: state.newPostText,
+                messeges: action.newPost,
                 likesCount:0,
             }
             return {
                 ...state,
-                post: [...state.posts.newPost],
-                newPostText: '',
+                posts: [...state.posts, newPostBody],
+                
             };
         }
-        case UPDATE_NEW_POST_TEXT:{
-
-            let stateCopy = {...state};
-            stateCopy.post = [...state.posts];
-                stateCopy.newPostText = action.newText;
-                return stateCopy;
-        }
+       
         case SET_USER_PROFILE:{
             return {...state, profile: action.profile}
         }
@@ -43,12 +36,9 @@ const profileReducer = (state = initialState,action) => {
                 return state;
     }         
 }
-export const updateNewPostTextActionCreator = (text) =>{
-    
-    return { type: UPDATE_NEW_POST_TEXT, newText: text }
-  }
-export const addPostActionCreator = () =>{
-    return { type: ADD_POST }
+
+export const addPostActionCreator = (newPost) =>{
+    return { type: ADD_POST, newPost }
 }
 export const setUserProfile = (profile) =>{
     return{ type: SET_USER_PROFILE, profile }

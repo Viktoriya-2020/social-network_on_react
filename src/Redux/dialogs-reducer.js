@@ -19,7 +19,7 @@ let initialState = {
         {id:6, messeges: 'What are you doing?'},
         {id:7, messeges: 'I am sleeping.'}
        ],
-       newMessageBody: 'enter message...'
+       
 }
 
 
@@ -32,15 +32,10 @@ const dialogsReducer = (state = initialState,action) => {
     }
     switch(action.type){
         case ADD_NEW_MESSAGE:
-            let body =  state.newMessageBody
+            let body =  action.MessageBody
             stateCopy.messeges.push({id:8, messeges:body});
              return stateCopy;
         
-        case WRITE_MESSAGE_BODY:
-            
-             stateCopy.newMessageBody = action.newMessages;
-             return stateCopy;
-
         default:
                 return state;
       }  
@@ -48,10 +43,8 @@ const dialogsReducer = (state = initialState,action) => {
 
 
 
-export const addMessageActionCreator = () => {
-    return {type:ADD_NEW_MESSAGE }
+export const addMessageActionCreator = (MessageBody) => {
+    return {type:ADD_NEW_MESSAGE, MessageBody }
  }  
- export const writeMessageActionCreator = (body) =>{
-    return {type: WRITE_MESSAGE_BODY, newMessages:body}
- }
+
 export default dialogsReducer;
