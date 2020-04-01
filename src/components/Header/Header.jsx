@@ -4,6 +4,10 @@ import logo from '../../assets/images/logo.png';
 import { NavLink } from 'react-router-dom';
 
 const Header = (props) => {
+  const Logout = () => {
+  
+    props.logout()
+  }
   
     return(
         <header className={style.header}>
@@ -11,7 +15,7 @@ const Header = (props) => {
           <img src={logo} alt = "up-age"/>
           <div></div><div></div><div></div>
           <div className={style.loginBlock}>
-            {props.isAuth ?<span> {props.login} <button>Log out</button></span>
+            {props.isAuth ?<span> {props.login} <button onClick={Logout}>Log out</button></span>
             :<NavLink className={style.loginLink} to = "/login">
               Login
             </NavLink>}
