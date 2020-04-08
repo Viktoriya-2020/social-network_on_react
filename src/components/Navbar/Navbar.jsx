@@ -1,32 +1,27 @@
 import React from 'react';
-import s from './Navbar.module.css';
-import {NavLink} from 'react-router-dom';
+import style from './Navbar.module.css';
+import { NavLink } from 'react-router-dom';
 import FriendsContainer from './Friends/FriendsContainer';
 
 const Navbar = (props) => {
- 
-    return(
-      
-      <nav className={s.nav}>
-      <div className={s.item}>
-        <NavLink to="/profile" activeClassName={s.activeLink} >Profile</NavLink>
+  return (
+    <nav className={style.nav}>
+      <div className={style.item}>
+        <NavLink to="/profile" activeClassName={style.activeLink} >Profile</NavLink>
       </div>
-      <div className={s.item}>
-      <NavLink to="/dialogs" activeClassName={s.activeLink}>Messages</NavLink>
+      <div className={style.item}>
+        <NavLink to="/dialogs" activeClassName={style.activeLink}>Messages</NavLink>
       </div>
-      <div className={s.item}>
-      <NavLink to="/users" activeClassName={s.activeLink}>Users</NavLink>
+      <div className={style.item}>
+        <NavLink to="/users" activeClassName={style.activeLink}>Users</NavLink>
       </div>
-      <div className={s.item}>
-      <NavLink to="/settings" activeClassName={s.activeLink}>Settings</NavLink>
+      <div className={style.item}>
+        <NavLink to="/settings" activeClassName={style.activeLink}>Settings</NavLink>
       </div>
-      <div className={s.friendsBlock}>
-      <FriendsContainer />
+      <div className={style.friendsBlock}>
+        <FriendsContainer />
       </div>
     </nav>
-    
-    
-    );
+  );
 }
-
 export default Navbar;

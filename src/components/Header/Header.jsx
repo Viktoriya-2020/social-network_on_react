@@ -5,24 +5,24 @@ import { NavLink } from 'react-router-dom';
 
 const Header = (props) => {
   const Logout = () => {
-  
+
     props.logout()
   }
-  
-    return(
-        <header className={style.header}>
-          <div className={style.headerGrid}>
-          <img src={logo} alt = "up-age"/>
-          <div></div><div></div><div></div>
-          <div className={style.loginBlock}>
-            {props.isAuth ? <span> {props.login} <button onClick={Logout}>Log out</button></span>
-            : <NavLink className={style.loginLink} to = "/login">
+
+  return (
+    <header className={style.header}>
+      <div className={style.headerGrid}>
+        <img src={logo} alt="up-age" />
+        <div></div><div></div><div></div>
+        <div className={style.loginBlock}>
+          {props.isAuth ? <span> {props.login} <button onClick={Logout}>Log out</button></span>
+            : <NavLink className={style.loginLink} to="/login">
               Login
             </NavLink>}
-          </div>
-          </div>
-        </header>
-    );
+        </div>
+      </div>
+    </header>
+  );
 }
 
 export default Header;
