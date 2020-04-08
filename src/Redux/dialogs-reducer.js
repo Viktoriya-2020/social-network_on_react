@@ -1,5 +1,5 @@
 const ADD_NEW_MESSAGE = "ADD-NEW-MESSAGE";
-const WRITE_MESSAGE_BODY =  "WRITE-MESSAGE-BODY"
+
 
 let initialState = {
     dialogs: [

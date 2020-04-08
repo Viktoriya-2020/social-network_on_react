@@ -44,14 +44,10 @@ export const setUserProfile = (profile) =>{
     return{ type: SET_USER_PROFILE, profile }
 }
 
-export const getUserProfile = (userId) => {
-    return (dispatch) => {
-        profileAPI.getUserData(userId).then(response =>{
+export const getUserProfile = (userId) => async (dispatch) => {
+        let response = await profileAPI.getUserData(userId)
       
             dispatch(setUserProfile(response.data));
-            
-        });
-    }
 }
 
 export default profileReducer;

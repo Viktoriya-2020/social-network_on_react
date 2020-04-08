@@ -1,16 +1,16 @@
-import React from 'react';
+
 import { connect } from 'react-redux';
 import Friends from './Friends';
 
 
 
 
-let mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
   return {
      friends: state.sideBar.friendsInfo
   }
 }
-let mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {
   return {
     
   }
