@@ -2,21 +2,14 @@ import React from 'react';
 import style from './Users.module.css';
 import userThoto from '../../assets/images/gambar-user-png-5.png';
 import {NavLink} from 'react-router-dom';
-import *as axios from 'axios';
-import { usersAPI } from '../../api/api';
+import Paginator from '../../common/Pagination/Paginator';
+
+
 const  Users =(props) =>{
    
-    let pagesCount = Math.ceil(props.totalUsersCount/ props.count);
-
-    let pages = []
-    
-    for(let i=1;i<=pagesCount;i++){
-        pages.push(i)
-    }
    return(
        
     <div className = {style.users}>
-        
         { props.users.map( u => 
             <div key = {u.id} className = {style.user}>
                 <div  className = {style.user_grid}>
@@ -47,17 +40,10 @@ const  Users =(props) =>{
                 </div>
             </div>)
     }
-    <div className = {style.numbersPages}>
-            {pages.map(p =>{ 
-                return <button  key = {p.index} className = {props.currentPage === p && style.selectPage} 
-                onClick = {(e)=>{props.onPageChanged(p)}}>{p}</button>
-                }) 
-            }
-        </div>
-
-    </div>
-        
-);   
+    <Paginator  totalUsersCount={props.totalUsersCount} currentPage={props.currentPage} 
+    onPageChanged={props.onPageChanged} count={props.count}/>
+</div>
+    );   
 }   
 
 export default Users;

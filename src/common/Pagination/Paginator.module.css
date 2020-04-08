@@ -1,0 +1,13 @@
+.selectPage{
+    font-weight: bold;
+}
+
+.users > button{
+    width: 1vw;  
+    height: 1vw;
+}
+
+.users > .numbersPages{
+    grid-row: 1/6;
+    grid-column: 2/3 ;
+}
