@@ -1,13 +1,13 @@
 import React from 'react';
-import s from './Post.module.css'
+import style from './Post.module.css'
 
 const Post = (props) => {
     return(
       
             
-                      <div className={s.item}>
+                      <div className={style.item}>
                           <img src='https://perfecto-web.pro/uploads/uifaces/ui-3.jpg' />
-                              {props.messege}           
+                              <span>{props.messege}</span>        
                               <p><b>LIKE</b> {props.likesCount}</p>
                       </div>
                       

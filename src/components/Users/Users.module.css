@@ -23,6 +23,11 @@
     display: grid;
     grid-template-columns: 4vw 17vw auto 6vw;
 }
+.usersStatus{
+    overflow: hidden;
+ white-space: nowrap;
+ text-overflow: ellipsis;
+}
 
 
 .user_grid img{

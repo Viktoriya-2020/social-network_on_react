@@ -10,6 +10,7 @@
 }
 .pagesPortion{
     width: 4.2vw;  
+    margin-top: 1vh;
 }
 .pagesPortion button{
     border-radius: 45%;

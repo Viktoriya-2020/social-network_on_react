@@ -18,3 +18,19 @@
 .loginLink{
   color:white;
 }
+.loginBlock > span{
+  color:#92eecf;
+  text-shadow: 1px 1px 2px rgb(32, 31, 31);
+}
+b{
+  margin-right: 2vw;
+}
+.loginBlock button{
+  background-color: #77e0ac ;
+  color: white;
+}
+@media only screen and(min-width:600px){
+  .header img{
+    flex-grow:3;
+   }
+}

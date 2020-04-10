@@ -17,9 +17,9 @@ const Users = (props) => {
                         </div>
                         <div>
                             <p>{u.name}</p>
-                            <p> {'u.user_location.country'} ({'u.user_location.city'})</p>
+                            <p> {'u.user_location.country'}</p>
                         </div>
-                        <div>{u.status}...</div>
+                        <div className={style.usersStatus}>{u.status}...</div>
                         <div>
                             {u.followed
                                 ? <button disabled={props.followingInProgress.some(id => id === u.id)} onClick={() => {

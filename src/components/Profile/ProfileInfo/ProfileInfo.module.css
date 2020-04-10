@@ -1,6 +1,10 @@
 h5{
 text-align: center;
 }
+h2{
+  color:#22c28c;
+  text-shadow: 1px 1px 2px rgb(32, 31, 31);
+}
 .container{
   
   display:grid;
@@ -8,8 +12,6 @@ text-align: center;
   grid-gap: 10px;
   background-color: white;
 }
-
-
 
 .content_wall{
   height: 30vh;
@@ -39,7 +41,7 @@ text-align: center;
 }
 
 .dickrip  span{
-  font-size: 1.5vw;
+  font-size: 1.3vw;
 }
 .newPost{
   grid-area: 2 / 4 / 3 / 5;

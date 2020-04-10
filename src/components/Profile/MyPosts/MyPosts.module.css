@@ -10,7 +10,7 @@ h3{
    margin-top: 8vh;
    display: grid;
    grid-template-columns: repeat(2,31vw);
-   grid-template-rows: repeat(2, auto);
+   grid-template-rows: repeat(2,30vh);
    grid-gap: 3vh 2vw;
  }
  .inform textarea{
