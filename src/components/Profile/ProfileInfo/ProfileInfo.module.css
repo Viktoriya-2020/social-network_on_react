@@ -1,5 +1,6 @@
-
-
+h5{
+text-align: center;
+}
 .container{
   
   display:grid;
@@ -28,7 +29,6 @@
   width: 80%;
   height:80%;
   position: relative;
-  right: -3vw;
   bottom: -6vh;
 }
 
@@ -41,9 +41,13 @@
 .dickrip  span{
   font-size: 1.5vw;
 }
+.newPost{
+  grid-area: 2 / 4 / 3 / 5;
+  background-color: #d7fdea;
+  color: #66dba1;
+}
 
 .posts{
   grid-area: 3 / 1 / 4 / 5;
-  
   background-color: #ffcc66;
 }

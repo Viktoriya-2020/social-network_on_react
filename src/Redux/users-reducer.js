@@ -2,6 +2,7 @@ import { usersAPI, profileAPI } from '../api/api';
 import { updateObjectInArray } from '../utils/object-helpers';
 
 const SET_USERS = "SET-USERS";
+const SET_FRIENDS = "SET_FRIENDS";
 const FOLLOW = "FOLLOW"
 const UNFOLLOW = "UNFOLLOW"
 const SET_CURRENT_PAGE = "SET-CURRENT-PAGE"
@@ -18,6 +19,7 @@ let initialState = {
     isFetching: false,
     followingInProgress: [],
     status: '',
+    friendsFromUsers:[]
 }
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -25,6 +27,12 @@ const usersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 users: [...action.users]
+            }
+            case SET_FRIENDS:
+                let items = action.partOfUsers;
+            return {
+                ...state,
+                friendsFromUsers:items.filter(items =>  items.photos.small)
             }
         case SET_STATUS:
             return {
@@ -74,6 +82,9 @@ const usersReducer = (state = initialState, action) => {
 }
 const setUsers = (users) => {
     return { type: SET_USERS, users }
+}
+const setFriends = (partOfUsers) => {
+    return { type: SET_FRIENDS, partOfUsers}
 }
 const followSuccess = (userId) => {
     return { type: FOLLOW, userId }
@@ -133,6 +144,11 @@ export const updateUserStatus = (status) => async (dispatch) => {
     if (response.data.resultCode === 0) {
         dispatch(updateStatus(status));
     }
+}
+export const getPartOfUsers = () => async (dispatch) => {
+    let data = await usersAPI.getFrendsFromUsers();
+    console.log(data)
+    dispatch(setFriends(data.items));
 }
 
 export default usersReducer;

@@ -21,9 +21,12 @@ export const usersAPI = {
      followUser (userId){
         return instance.post(`follow/${userId}`,{})
         }, 
-   
-    
-                     
+    getFrendsFromUsers (){
+        return instance.get(`users?count=50&page=59`)
+        .then(response =>{
+         return response.data
+      })
+    }
 }
 export const profileAPI = {
     getUserData(userId){

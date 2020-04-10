@@ -1,10 +1,6 @@
 .selectPage{
     font-weight: bold;
-}
-
-.pagesPortion button{
-    width: 4vw;  
-    height: 2vw;
+    color: rgb(34, 26, 10);
 }
 
 .numbersPages{
@@ -14,12 +10,20 @@
 }
 .pagesPortion{
     width: 4.2vw;  
-    height: 19vw;
-    border: solid 1px red;
 }
-.specBut{
-    background-color: thistle;
+.pagesPortion button{
+    border-radius: 45%;
+    background-color:#e9c172;
     width: 4vw;  
-    height: 4vw;
-
+    height: 3vw;
+    color:white;
+    border-color: #f5ca75;
+}
+.pagesPortion  :first-child{
+    background-color: #ddb462;
+    border-radius: 30%;
+}
+.pagesPortion  :nth-child(12){
+    background-color: #ddb462;
+    border-radius: 30%;
 }

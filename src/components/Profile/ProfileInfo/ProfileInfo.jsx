@@ -24,6 +24,7 @@ const ProfileInfo = ({ profile, statusUser, updateUserStatus, ...props }) => {
           <h2>{profile.fullName}</h2>
           <ProfileStatusWithHooks statusUser={statusUser} updateUserStatus={updateUserStatus} />
         </div>
+        <div className={style.newPost}><h5>New Post</h5></div>
       </div>
     </div>
   );

@@ -4,9 +4,9 @@ import style from './Friends.module.css';
 
 const Friends = (props) => {
 
-  let friendsElements = props.friends.map(f =>
+  let friendsElements = props.friendsFromUsers.map(f =>
     <div key={f.id} className={style.friendItem}>
-      <img src="https://cdn1.iconfinder.com/data/icons/children-avatar-flat/128/children_avatar-01-512.png" alt='icon' />
+      <img src={f.photos.small} alt='icon' />
       <div className={style.nameItem}>
         {f.name}
       </div>
@@ -21,3 +21,4 @@ const Friends = (props) => {
 }
 
 export default Friends;
+//"https://cdn1.iconfinder.com/data/icons/children-avatar-flat/128/children_avatar-01-512.png"

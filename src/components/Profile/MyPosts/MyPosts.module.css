@@ -1,20 +1,25 @@
-
-
-.postNew{
-  background-color: rgb(219, 218, 216);
-  margin-right: 2em;
+h3{
+  text-align: center;
+}
+.postForm{
+  position: absolute;;
+  right: 10%;
 }
 
-.inform textarea{
- margin:1em;
- border-width:2px;
- border-color: rgb(47, 160, 126)
-}
-
-.inform button{
-  margin:1em;
- background-color: rgb(248, 97, 51);
- color: indigo;
- height: 4vh;
- width: 7vw;
+ .posts{
+   margin-top: 8vh;
+   display: grid;
+   grid-template-columns: repeat(2,31vw);
+   grid-template-rows: repeat(2, auto);
+   grid-gap: 3vh 2vw;
  }
+ .inform textarea{
+  border-width:2px;
+  border-color: rgb(47, 160, 126)
+ }
+ 
+ .inform button{
+  background-color: rgb(248, 97, 51);
+  height: 4vh;
+  width: 5vw;
+  }

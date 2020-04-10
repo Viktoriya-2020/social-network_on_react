@@ -2,11 +2,15 @@
   grid-area:n ;
   background-color: #99ffcc;
   padding:2vw;
+  
 }
 
 .item a{
+  font-size: 1.4vw;
+  font-weight: bold;
   color:white;
   text-decoration: none;
+  
 }
 
 .item a.activeLink {
@@ -16,4 +20,10 @@
 
 .friendsBlock{
   width: 100%;
+}
+.navLinks{
+  padding: 1vw;
+  border-bottom: dotted 0.5vh #51b884;
+  border-right:dotted 0.5vh #51b884;
+  line-height: 5vh;
 }
